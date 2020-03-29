@@ -25,6 +25,7 @@ type ServeOpts struct {
 
 func (a Api) Serve(opts ServeOpts) error {
 	router := mux.NewRouter()
+
 	router.HandleFunc("/", Home).Methods("GET")
 	router.HandleFunc("/work/experiences", a.work.WorkList).Methods("GET")
 	router.HandleFunc("/languages", a.language.LanguagesList).Methods("GET")

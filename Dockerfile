@@ -8,4 +8,4 @@ FROM alpine
 RUN mkdir /app
 WORKDIR /app
 COPY --from=builder /app/app .
-CMD ["./hello"]
+CMD ["./app"]
