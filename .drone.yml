@@ -1,17 +1,3 @@
----
-kind: secret
-name: docker_username
-get:
-  path: docker-credentials
-  name: username
----
-kind: secret
-name: docker_password
-get:
-  path: docker-credentials
-  name: password
-
----
 kind: pipeline
 type: kubernetes
 name: linux-amd64
@@ -144,3 +130,18 @@ trigger:
 depends_on:
   - linux-arm64
   - linux-arm
+
+---
+kind: secret
+name: docker_username
+get:
+  path: docker-credentials
+  name: username
+---
+kind: secret
+name: docker_password
+get:
+  path: docker-credentials
+  name: password
+
+---
