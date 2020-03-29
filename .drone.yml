@@ -78,7 +78,7 @@ steps:
 
 trigger:
   event:
-    - pushg
+    - push
 
 depends_on:
   - linux-amd64
@@ -116,7 +116,7 @@ steps:
 
 trigger:
   event:
-    - pushg
+    - push
 
 depends_on:
   - linux-amd64
@@ -140,7 +140,7 @@ steps:
 
 trigger:
   event:
-    - pushg
+    - push
 
 depends_on:
   - linux-arm64
