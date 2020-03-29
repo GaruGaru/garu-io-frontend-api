@@ -41,7 +41,6 @@ steps:
     when:
       event:
         - push
-g
 
 ---
 kind: pipeline
