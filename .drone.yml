@@ -32,7 +32,7 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: linux-amd64
-      dockerfile: docker/Dockerfile.server.linux.amd64
+      dockerfile: Dockerfile
       repo: drone/drone
       username:
         from_secret: docker_username
@@ -68,7 +68,7 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: linux-arm64
-      dockerfile: docker/Dockerfile.server.linux.arm64
+      dockerfile: Dockerfile
       repo: drone/drone
       username:
         from_secret: docker_username
@@ -106,7 +106,7 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: linux-arm
-      dockerfile: docker/Dockerfile.server.linux.arm
+      dockerfile: Dockerfile
       repo: drone/drone
       username:
         from_secret: docker_username
@@ -131,7 +131,7 @@ steps:
     settings:
       auto_tag: true
       ignore_missing: true
-      spec: docker/manifest.server.tmpl
+      spec: docker/manifest.tmpl
       username:
         from_secret: docker_username
       password:
