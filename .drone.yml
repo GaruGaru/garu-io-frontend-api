@@ -33,7 +33,7 @@ steps:
       auto_tag: true
       auto_tag_suffix: linux-amd64
       dockerfile: Dockerfile
-      repo: drone/drone
+      repo: garugaru/garu-io-frontend-api
       username:
         from_secret: docker_username
       password:
@@ -69,7 +69,7 @@ steps:
       auto_tag: true
       auto_tag_suffix: linux-arm64
       dockerfile: Dockerfile
-      repo: drone/drone
+      repo: garugaru/garu-io-frontend-api
       username:
         from_secret: docker_username
       password:
@@ -107,7 +107,7 @@ steps:
       auto_tag: true
       auto_tag_suffix: linux-arm
       dockerfile: Dockerfile
-      repo: drone/drone
+      repo: garugaru/garu-io-frontend-api
       username:
         from_secret: docker_username
       password:
