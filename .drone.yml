@@ -41,7 +41,7 @@ steps:
     when:
       event:
         - push
-        - tag
+g
 
 ---
 kind: pipeline
@@ -78,8 +78,7 @@ steps:
 
 trigger:
   event:
-    - push
-    - tag
+    - pushg
 
 depends_on:
   - linux-amd64
@@ -117,8 +116,7 @@ steps:
 
 trigger:
   event:
-    - push
-    - tag
+    - pushg
 
 depends_on:
   - linux-amd64
@@ -142,8 +140,7 @@ steps:
 
 trigger:
   event:
-    - push
-    - tag
+    - pushg
 
 depends_on:
   - linux-arm64
