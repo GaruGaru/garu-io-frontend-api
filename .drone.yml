@@ -18,8 +18,8 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: linux-amd64
-      dockerfile: docker/Dockerfile.server.linux.amd64
-      repo: drone/drone
+      dockerfile: Dockerfile
+      repo: garugaru/garu-io-frontend-api
       username:
         from_secret: docker_username
       password:
@@ -54,8 +54,8 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: linux-arm64
-      dockerfile: docker/Dockerfile.server.linux.arm64
-      repo: drone/drone
+      dockerfile: Dockerfile
+      repo: garugaru/garu-io-frontend-api
       username:
         from_secret: docker_username
       password:
@@ -92,8 +92,8 @@ steps:
     settings:
       auto_tag: true
       auto_tag_suffix: linux-arm
-      dockerfile: docker/Dockerfile.server.linux.arm
-      repo: drone/drone
+      dockerfile: Dockerfile
+      repo: garugaru/garu-io-frontend-api
       username:
         from_secret: docker_username
       password:
@@ -117,7 +117,7 @@ steps:
     settings:
       auto_tag: true
       ignore_missing: true
-      spec: docker/manifest.server.tmpl
+      spec: docker/manifest.tmpl
       username:
         from_secret: docker_username
       password:
@@ -143,5 +143,3 @@ name: docker_password
 get:
   path: docker-credentials
   name: password
-
----
