@@ -91,7 +91,22 @@ depends_on:
 ---
 kind: pipeline
 type: kubernetes
+name: rollout
 steps:
+  - name: apply resources
+    image: sinlead/drone-kubectl
+    settings:
+      kubernetes_server:
+        from_secret: kubernetes_server
+      kubernetes_cert:
+        from_secret: kubernetes_ca
+      kubernetes_token:
+        from_secret: kubernetes_token
+    commands:
+      - kubectl apply -f kubernetes/0_namespace.yml
+      - kubectl apply -f kubernetes/ingress.yml
+      - kubectl apply -f kubernetes/service.yml
+
   - name: rollout
     image: quay.io/honestbee/drone-kubernetes
     kubernetes_server:
@@ -106,24 +121,13 @@ steps:
     container: api
     tag: ${DRONE_COMMIT_SHA}
 
-  - name: apply resources
-    image: sinlead/drone-kubectl
-    settings:
-      kubernetes_server:
-        from_secret: kubernetes_server
-      kubernetes_cert:
-        from_secret: kubernetes_ca
-      kubernetes_token:
-        from_secret: kubernetes_token
-    commands:
-       - kubectl apply -f kubernetes/0_namespace.yml
-       - kubectl apply -f kubernetes/ingress.yml
-       - kubectl apply -f kubernetes/service.yml
-
 trigger:
   event:
     - push
+
 depends_on:
+  - linux-amd64
+  - linux-arm
   - manifest
 ---
 kind: secret
