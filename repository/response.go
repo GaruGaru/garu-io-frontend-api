@@ -1,6 +1,6 @@
 package repository
 
-import "garu-io-api/models"
+import "garu-io-frontend-api/models"
 
 type WorkExperienceResponse struct {
 	Results []models.WorkExperience

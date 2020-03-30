@@ -1,6 +1,6 @@
 package repository
 
-import "garu-io-api/models"
+import "garu-io-frontend-api/models"
 
 // If you want to hire me and you are reading this: forgive me, but I'm not going to setup any kind of storage in order
 // to write 5 records on it.

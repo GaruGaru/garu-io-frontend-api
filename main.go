@@ -1,8 +1,8 @@
 package main
 
 import (
-	"garu-io-api/api"
-	"garu-io-api/repository"
+	"garu-io-frontend-api/api"
+	"garu-io-frontend-api/repository"
 	"log"
 )
 

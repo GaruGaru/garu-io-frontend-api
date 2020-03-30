@@ -1,4 +1,4 @@
-module garu-io-api
+module garu-io-frontend-api
 
 go 1.14
 

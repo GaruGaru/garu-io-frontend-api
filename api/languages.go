@@ -2,7 +2,7 @@ package api
 
 import (
 	"encoding/json"
-	"garu-io-api/repository"
+	"garu-io-frontend-api/repository"
 	"github.com/sirupsen/logrus"
 	"net/http"
 )

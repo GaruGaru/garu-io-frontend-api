@@ -1,8 +1,8 @@
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: garu-io-api
-  namespace: garu-io-api
+  name: garu-io-frontend-api
+  namespace: garu-io-frontend-api
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -15,6 +15,6 @@ spec:
         paths:
           - path: /portfolio/(.+)
             backend:
-              serviceName: garu-io-api
+              serviceName: garu-io-frontend-api
               servicePort: 80
 
