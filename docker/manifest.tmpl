@@ -1,20 +1,17 @@
   
-image: garugaru/garu-io-frontend-api:{{#if build.tag}}{{trimPrefix "v" build.tag}}{{else}}latest{{/if}}
-{{#if build.tags}}
+image: garugaru/garu-io-frontend-api:latest
 tags:
-{{#each build.tags}}
-  - {{this}}
-{{/each}}
-{{/if}}
+  - latest
+  - {{build.commit}}
 manifests:
   -
-    image: garugaru/garu-io-frontend-api:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}linux-amd64
+    image: garugaru/garu-io-frontend-api:linux-amd64
     platform:
       architecture: amd64
       os: linux
       variant: v8
   -
-    image: garugaru/garu-io-frontend-api:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}linux-arm
+    image: garugaru/garu-io-frontend-api:linux-armv7
     platform:
       architecture: arm
       os: linux

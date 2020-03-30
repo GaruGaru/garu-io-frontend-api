@@ -92,7 +92,14 @@ depends_on:
 kind: pipeline
 type: kubernetes
 steps:
-  - name: deploy
+  - name: rollout
+    image: vallard/drone-kube
+    template: kubernetes/deployment.yml
+    namespace: garu-io-api
+    server:
+      from_secret: kubernetes_server
+
+  - name: apply resources
     image: sinlead/drone-kubectl
     settings:
       kubernetes_server:
@@ -102,8 +109,11 @@ steps:
       kubernetes_token:
         from_secret: kubernetes_token
     commands:
-      - kubectl apply -f kubernetes/
-      - kubectl wait --for=condition=complete -f kubernetes/deployment.yml
+       - kubectl apply -f kubernetes/0_namespace.yml
+       - kubectl apply -f kubernetes/ingress.yml
+       - kubectl apply -f kubernetes/service.yml
+depends_on:
+  - manifest
 ---
 kind: secret
 name: docker_username
