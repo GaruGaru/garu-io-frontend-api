@@ -5,13 +5,13 @@ tags:
   - {{build.commit}}
 manifests:
   -
-    image: garugaru/garu-io-frontend-api:linux-amd64
+    image: garugaru/garu-io-frontend-api:{{build.commit}}
     platform:
       architecture: amd64
       os: linux
       variant: v8
   -
-    image: garugaru/garu-io-frontend-api:linux-armv7
+    image: garugaru/garu-io-frontend-api:{{build.commit}}
     platform:
       architecture: arm
       os: linux

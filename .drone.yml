@@ -116,6 +116,7 @@ steps:
       - kubectl apply -f kubernetes/ingress.yml
       - kubectl apply -f kubernetes/service.yml
       - kubectl apply -f kubernetes/deployment.yml
+      - kubectl -n garu-io-api set image deployment/api api=garugaru/garu-io-frontend-api:${DRONE_COMMIT_SHA} --record
       - kubectl rollout status -f kubernetes/deployment.yml
 
 trigger:
