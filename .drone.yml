@@ -31,46 +31,6 @@ steps:
 ---
 kind: pipeline
 type: kubernetes
-name: linux-arm64
-
-
-
-platform:
-  arch: arm64
-  os: linux
-
-steps:
-  - name: build
-    image: golang:1.13.0
-    commands:
-      - go build
-      - go test ./...
-    environment:
-      GOARCH: arm64
-      GOOS: linux
-
-  - name: publish
-    image: plugins/docker:18
-    settings:
-      auto_tag: true
-      auto_tag_suffix: linux-arm64
-      dockerfile: Dockerfile
-      repo: garugaru/garu-io-frontend-api
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-
-trigger:
-  event:
-    - push
-
-depends_on:
-  - linux-amd64
-
----
-kind: pipeline
-type: kubernetes
 name: linux-arm
 
 platform:
@@ -102,9 +62,6 @@ steps:
 trigger:
   event:
     - push
-
-depends_on:
-  - linux-amd64
 
 ---
 kind: pipeline
