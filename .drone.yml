@@ -62,7 +62,8 @@ steps:
 trigger:
   event:
     - push
-
+depends_on:
+  - linux-amd64
 ---
 kind: pipeline
 type: kubernetes
@@ -120,6 +121,9 @@ steps:
     repo: garugaru/garu-io-frontend-api
     container: api
     tag: ${DRONE_COMMIT_SHA}
+
+node:
+  kubernetes.io/arch: "amd64"
 
 trigger:
   event:
