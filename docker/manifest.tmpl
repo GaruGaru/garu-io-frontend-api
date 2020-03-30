@@ -1,17 +1,16 @@
-  
-image: garugaru/garu-io-frontend-api:latest
+ image: garugaru/garu-io-frontend-api:latest
 tags:
   - latest
   - {{build.commit}}
 manifests:
   -
-    image: garugaru/garu-io-frontend-api:{{build.commit}}
+    image: garugaru/garu-io-frontend-api:amd64
     platform:
       architecture: amd64
       os: linux
       variant: v8
   -
-    image: garugaru/garu-io-frontend-api:{{build.commit}}
+    image: garugaru/garu-io-frontend-api:arm32v7
     platform:
       architecture: arm
       os: linux
