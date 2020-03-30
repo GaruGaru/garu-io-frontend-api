@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: garu-io-api
+  namespace: garu-io-api
+  labels:
+    app: api
+    tier: api
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+
+  selector:
+    app: api
+    tier: api

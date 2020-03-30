@@ -89,6 +89,22 @@ depends_on:
   - linux-arm
 
 ---
+kind: pipeline
+type: kubernetes
+steps:
+  - name: deploy
+    image: sinlead/drone-kubectl
+    settings:
+      kubernetes_server:
+        from_secret: kubernetes_server
+      kubernetes_cert:
+        from_secret: kubernetes_ca
+      kubernetes_token:
+        from_secret: kubernetes_token
+    commands:
+      - kubectl apply -f kubernetes/
+      - kubectl wait --for=condition=complete -f kubernetes/deployment.yml
+---
 kind: secret
 name: docker_username
 get:
@@ -100,3 +116,21 @@ name: docker_password
 get:
   path: docker-credentials
   name: password
+---
+kind: secret
+name: kubernetes_ca
+get:
+  path: drone-account
+  name: ca.crt
+---
+kind: secret
+name: kubernetes_token
+get:
+  path: drone-account
+  name: token
+---
+kind: secret
+name: kubernetes_server
+get:
+  path: kubernetes
+  name: server

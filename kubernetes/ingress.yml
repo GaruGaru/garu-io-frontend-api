@@ -1,0 +1,20 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: garu-io-api
+  namespace: garu-io-api
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+
+    - host: api.garu.io
+      http:
+        paths:
+          - path: /portfolio/(.+)
+            backend:
+              serviceName: garu-io-api
+              servicePort: 80
+
