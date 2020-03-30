@@ -26,7 +26,8 @@ spec:
       containers:
 
         - name: api
-          image: garugaru/garu-io-frontend-api:{{build.commit}}
+          image: garugaru/garu-io-frontend-api:latest
+
           ports:
             - containerPort: 8080
               name: api

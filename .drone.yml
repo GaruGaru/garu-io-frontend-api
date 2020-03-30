@@ -115,20 +115,8 @@ steps:
       - kubectl apply -f kubernetes/0_namespace.yml
       - kubectl apply -f kubernetes/ingress.yml
       - kubectl apply -f kubernetes/service.yml
-
-  - name: rollout
-    image: quay.io/honestbee/drone-kubernetes
-    kubernetes_server:
-      from_secret: kubernetes_server
-    kubernetes_cert:
-      from_secret: kubernetes_ca
-    kubernetes_token:
-      from_secret: kubernetes_token
-    namespace: garu-io-api
-    deployment: garu-io-api
-    repo: garugaru/garu-io-frontend-api
-    container: api
-    tag: ${DRONE_COMMIT_SHA}
+      - kubectl apply -f kubernetes/deployment.yml
+      - kubectl rollout status -f kubernetes/deployment.yml
 
 trigger:
   event:
