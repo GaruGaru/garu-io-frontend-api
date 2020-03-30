@@ -85,7 +85,7 @@ trigger:
     - push
 
 depends_on:
-  - linux-arm64
+  - linux-amd64
   - linux-arm
 
 ---
