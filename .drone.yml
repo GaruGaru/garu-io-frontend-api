@@ -93,6 +93,14 @@ depends_on:
 kind: pipeline
 type: kubernetes
 name: rollout
+
+platform:
+  arch: amd64
+  os: linux
+
+node_selector:
+  kubernetes.io/arch: "amd64"
+
 steps:
   - name: apply resources
     image: sinlead/drone-kubectl
@@ -121,9 +129,6 @@ steps:
     repo: garugaru/garu-io-frontend-api
     container: api
     tag: ${DRONE_COMMIT_SHA}
-
-node:
-  kubernetes.io/arch: "amd64"
 
 trigger:
   event:
