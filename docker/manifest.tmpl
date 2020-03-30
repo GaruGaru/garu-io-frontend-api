@@ -8,9 +8,9 @@ tags:
 {{/if}}
 manifests:
   -
-    image: garugaru/garu-io-frontend-api:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}linux-arm64
+    image: garugaru/garu-io-frontend-api:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}linux-amd64
     platform:
-      architecture: arm64
+      architecture: amd64
       os: linux
       variant: v8
   -
