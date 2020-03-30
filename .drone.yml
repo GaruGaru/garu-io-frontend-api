@@ -93,11 +93,18 @@ kind: pipeline
 type: kubernetes
 steps:
   - name: rollout
-    image: vallard/drone-kube
-    template: kubernetes/deployment.yml
+    image: quay.io/honestbee/drone-kubernetes
+      kubernetes_server:
+        from_secret: kubernetes_server
+      kubernetes_cert:
+        from_secret: kubernetes_ca
+      kubernetes_token:
+        from_secret: kubernetes_token
     namespace: garu-io-api
-    server:
-      from_secret: kubernetes_server
+    deployment: garu-io-api
+    repo: garugaru/garu-io-frontend-api
+    container: api
+    tag: ${DRONE_COMMIT_SHA}
 
   - name: apply resources
     image: sinlead/drone-kubectl
@@ -112,6 +119,10 @@ steps:
        - kubectl apply -f kubernetes/0_namespace.yml
        - kubectl apply -f kubernetes/ingress.yml
        - kubectl apply -f kubernetes/service.yml
+
+trigger:
+  event:
+    - push
 depends_on:
   - manifest
 ---
