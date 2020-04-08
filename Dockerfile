@@ -1,8 +1,12 @@
 FROM golang:alpine AS builder
+
+ARG ARCH=amd64
+ARG OS=linux
+
 RUN mkdir /app
 ADD . /app/
 WORKDIR /app
-RUN go build -o app .
+RUN GOOS=$OS GOARCH=$ARCH go build -o app .
 
 FROM alpine
 RUN mkdir /app

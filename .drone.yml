@@ -16,13 +16,16 @@ steps:
   - name: publish
     image: plugins/docker:18
     environment:
-      GOOS: linux
-      GOARCH: amd64
+      OS: linux
+      ARCH: amd64
     settings:
       auto_tag: true
       auto_tag_suffix: linux-amd64
       dockerfile: Dockerfile
       repo: garugaru/garu-io-frontend-api
+      build_args_from_env:
+        - OS
+        - ARCH
       username:
         from_secret: docker_username
       password:
@@ -47,8 +50,8 @@ steps:
       - go build
       - go test ./...
     environment:
-      GOARCH: arm
-      GOOS: linux
+      OS: linux
+      ARCH: arm
 
   - name: publish
     image: plugins/docker:18
@@ -57,9 +60,9 @@ steps:
       auto_tag_suffix: linux-arm
       dockerfile: Dockerfile
       repo: garugaru/garu-io-frontend-api
-      environment:
-        GOOS: linux
-        GOARCH: arm
+      build_args_from_env:
+        - OS
+        - ARCH
       username:
         from_secret: docker_username
       password:
