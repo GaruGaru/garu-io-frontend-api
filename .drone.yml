@@ -17,7 +17,7 @@ steps:
     image: plugins/docker:18
     environment:
       GOOS: linux
-      GOARCH: arm
+      GOARCH: amd64
     settings:
       auto_tag: true
       auto_tag_suffix: linux-amd64
@@ -59,7 +59,7 @@ steps:
       repo: garugaru/garu-io-frontend-api
       environment:
         GOOS: linux
-        GOARCH: amd64
+        GOARCH: arm
       username:
         from_secret: docker_username
       password:
