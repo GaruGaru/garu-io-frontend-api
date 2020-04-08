@@ -1,7 +1,7 @@
 FROM golang:alpine AS builder
 
-ARG ARCH=amd64
-ARG OS=linux
+ARG ARCH
+ARG OS
 
 RUN mkdir /app
 ADD . /app/
