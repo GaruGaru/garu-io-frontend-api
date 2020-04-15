@@ -73,8 +73,14 @@ jobs:
         if: always()
         run: |
           rm -f ${HOME}/.docker/config.json
-
-      - name: deploy to cluster
+      - name: deploy resources
+        uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+          KUBECTL_VERSION: "1.17"
+        with:
+          args: apply -f kubernetes/
+      - name: rollout images
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
