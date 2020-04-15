@@ -87,4 +87,4 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
           KUBECTL_VERSION: "1.17"
         with:
-          args: '"rollout status kubernetes/deployment.yml"'
+          args: -n garu-io-frontend-api rollout status -f kubernetes/deployment.yml
