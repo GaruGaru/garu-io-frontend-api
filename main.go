@@ -9,7 +9,9 @@ import (
 func main() {
 	workApi := api.NewWorkApi(repository.LocalWorkExperiencesRepository{})
 	languageApi := api.NewLanguagesApi(repository.LocalLanguagesRepository{})
-	apiServer := api.NewApi(workApi, languageApi)
+	projectsApi := api.NewProjectsApi(repository.NewProjectsApi("http://garu-io-projects-api.garu-io-projects-api:80"))
+
+	apiServer := api.NewApi(workApi, languageApi, projectsApi)
 
 	err := apiServer.Serve(api.ServeOpts{
 		Addr: "0.0.0.0",

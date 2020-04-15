@@ -10,3 +10,7 @@ type KnownLanguagesResponse struct {
 	Results []models.Languages
 }
 
+type ProjectsResponse struct {
+	Results []models.Project
+}
+

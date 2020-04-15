@@ -7,3 +7,8 @@ type WorkRepository interface {
 type LanguagesRepository interface {
 	KnownLanguages(KnownLanguagesRequest) (KnownLanguagesResponse, error)
 }
+
+type ProjectsRepository interface {
+	Projects(ProjectsRequest) (ProjectsResponse, error)
+}
+
