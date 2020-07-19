@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: garu-io-api
   namespace: garu-io-frontend-api
 spec:
   replicas: 2
