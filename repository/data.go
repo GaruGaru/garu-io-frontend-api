@@ -41,7 +41,7 @@ var workExperiences = []models.WorkExperience{
 		Company: models.Company{
 			Name:    "Data Appeal",
 			Website: "https://datappeal.io/",
-			Logo:    "https://media-exp1.licdn.com/dms/image/C4D0BAQEcpvYxu3dLyw/company-logo_100_100/0?e=1593648000&v=beta&t=9-ak9-W-ix97VeNAGu7BT_eXEiUCA22WD6TkDFwWImw",
+			Logo:    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUiJjL///8fIzBAQ00bIC1hZGuEhYoVGikABhzFxsjx8fIyNUAAABMADB/u7u63uLsAABbj4+Spq69SVV2foKMMEyOQkpY5PEdcXmaXmZ2vsbSlpqgAAAD4+PgAABvW1tjc68prAAABv0lEQVR4nO3cwVLbMBSGUTelBGhpgMbQQinv/5bstUBzx47wn55vL+mereTx9Hh53h2np/1ZN/+evu6mc+7iG2F6hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPmtIJx7Ffdvl++XjbdcOP95+Ljn2gHzsVl/uYy4XHh3/6XTr4vKfj9umuXXV4vm26DwJ2Etwn6EhG2E1Qj7ERK2EVYj7EdI2EZYjbAfIWEbYTXCfoSEbYTVCPsRErZtT7h/PH7cy1PpgO0Jp/26r9wbFK4cYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYbU1/k9zu2p/NyecXw6r9vy6NWH/C9qFERISEhISEhISEhISnoXw39vNSXs93H6ycPf91C2bb4VbjN2pWzbe9m6i1o4wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8/gfhOx1iXMi+eXo4AAAAAElFTkSuQmCC",
 		},
 		Description: `
 <p><p>During my experience as fullstack developer in TravelAppeal I've worked on the design and implementation of the <b>microservice architecture</b>
@@ -55,12 +55,12 @@ Migration from ECS to EKS (Managed kubernetes service) using Terraform for infra
 	},
 	{
 		Role:      "Full Stack Developer",
-		StartYear: 2018,
-		EndYear:   -1,
+		StartYear: 2016,
+		EndYear:   2018,
 		Company: models.Company{
 			Name:    "Instal",
 			Website: "https://instal.com/",
-			Logo:    "https://media-exp1.licdn.com/dms/image/C560BAQHeqaAqYFphcg/company-logo_100_100/0?e=1593648000&v=beta&t=g4X_-y_ZCd8wdM1J4PWUxwRczoJO1ifEsmQMTW1fFMo",
+			Logo:    "https://media-exp1.licdn.com/dms/image/C560BAQHeqaAqYFphcg/company-logo_200_200/0?e=2159024400&v=beta&t=fdWnWI221qXh3u3dApKhYRPzmSk_hdnqp70jwZCoD5Y",
 		},
 		Description: `
 <p><p>In Instal I've worked as an android developer, my work was focused mainly on the proprietary <b>sdk development</b></p> <p> 
