@@ -12,6 +12,7 @@ type ProjectsApiResponse struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
 	Language    string `json:"language"`
+	Uri         string `json:"uri"`
 }
 
 type ProjectsApi struct {
@@ -54,6 +55,7 @@ func (p ProjectsApi) Projects(request ProjectsRequest) (ProjectsResponse, error)
 			Name:        r.Name,
 			Description: r.Description,
 			Language:    r.Language,
+			Uri:         r.Uri,
 		}
 	}
 
