@@ -48,3 +48,29 @@ spec:
             limits:
               memory: "40Mi"
               cpu: "100m"
+
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: api
+
+      tolerations:
+        - key: "garu-storage"
+          operator: "Equal"
+          value: "true"
+          effect: "NoExecute"
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - api
+                topologyKey: topology.kubernetes.io/zone
