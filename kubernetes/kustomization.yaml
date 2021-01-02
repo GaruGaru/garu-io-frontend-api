@@ -7,7 +7,7 @@ resources:
 images:
 - name: api
   newName: garugaru/garu-io-frontend-api
-  newTag: 6bae6305eef19238358cc1ffb2488d2c5faa38c0
+  newTag: 84079cc0821ab10ec42f08f8215349c9def0bb04
 - name: garugaru/garu-io-frontend-api
   newName: garugaru/garu-io-frontend-api
   newTag: 79316a904993a32296fc843717a48cebfa44b63f
