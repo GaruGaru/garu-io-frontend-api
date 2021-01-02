@@ -16,6 +16,7 @@ spec:
       http:
         paths:
           - path: /portfolio/(.+)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: garu-io-frontend-api
