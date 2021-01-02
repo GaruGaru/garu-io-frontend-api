@@ -23,6 +23,7 @@ spec:
                 port:
                   number: 80
           - path: /personal/(.+)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: garu-io-frontend-api
