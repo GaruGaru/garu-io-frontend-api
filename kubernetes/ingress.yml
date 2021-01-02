@@ -17,12 +17,16 @@ spec:
         paths:
           - path: /portfolio/(.+)
             backend:
-              serviceName: garu-io-frontend-api
-              servicePort: 80
+              service:
+                name: garu-io-frontend-api
+                port:
+                  number: 80
           - path: /personal/(.+)
             backend:
-              serviceName: garu-io-frontend-api
-              servicePort: 80
+              service:
+                name: garu-io-frontend-api
+                port:
+                  number: 80
   tls:
     - hosts:
         - apis.garu.io
