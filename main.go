@@ -26,7 +26,7 @@ func main() {
 
 	workApi := api.NewWorkApi(repository.LocalWorkExperiencesRepository{})
 	languageApi := api.NewLanguagesApi(repository.LocalLanguagesRepository{}, tracer)
-	projectsApi := api.NewProjectsApi(repository.NewProjectsApi("http://garu-io-projects-api.garu-io-projects-api:80"), tracer)
+	projectsApi := api.NewProjectsApi(repository.NewProjectsApi("http://garu-io-projects-api.garu-io-projects-api:80", tracer), tracer)
 	apiServer := api.NewApi(workApi, languageApi, projectsApi, tracer)
 
 	err = apiServer.Serve(api.ServeOpts{

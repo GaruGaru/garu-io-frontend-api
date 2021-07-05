@@ -1,5 +1,7 @@
 package repository
 
+import "context"
+
 type WorkRepository interface {
 	WorkExperiences(WorkExperienceRequest) (WorkExperienceResponse, error)
 }
@@ -9,6 +11,5 @@ type LanguagesRepository interface {
 }
 
 type ProjectsRepository interface {
-	Projects(ProjectsRequest) (ProjectsResponse, error)
+	Projects(context.Context, ProjectsRequest) (ProjectsResponse, error)
 }
-

@@ -22,7 +22,7 @@ func (a ProjectsApi) ProjectsList(w http.ResponseWriter, r *http.Request) {
 	span := spanFromRequest(a.tracer, r, "ProjectList")
 	defer span.Finish()
 
-	response, err := a.repository.Projects(repository.ProjectsRequest{
+	response, err := a.repository.Projects(r.Context(), repository.ProjectsRequest{
 		Count: 5,
 	})
 
@@ -30,7 +30,6 @@ func (a ProjectsApi) ProjectsList(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		logrus.Error("projects api repository error", err)
-
 		span.SetTag("error", true)
 		span.LogFields(log.Error(err))
 		if _, err := w.Write([]byte(err.Error())); err != nil {

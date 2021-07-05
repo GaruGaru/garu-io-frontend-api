@@ -1,23 +1,14 @@
 package api
 
 import (
-	"context"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 	"net/http"
 )
 
-const (
-	MiddlewareContextSpanKey = "span"
-)
-
 func spanFromRequest(tracer opentracing.Tracer, r *http.Request, opName string) opentracing.Span {
-	clientContext, isSpan := r.Context().Value(MiddlewareContextSpanKey).(opentracing.SpanContext)
-	opts := make([]opentracing.StartSpanOption, 0)
-	if isSpan {
-		opts = append(opts, ext.RPCServerOption(clientContext))
-	}
-	return tracer.StartSpan(opName, opts...)
+	span := opentracing.SpanFromContext(r.Context())
+	return tracer.StartSpan(opName, ext.RPCServerOption(span.Context()))
 }
 
 func (a Api) tracingMiddleware(next http.Handler) http.Handler {
@@ -36,10 +27,8 @@ func (a Api) tracingMiddleware(next http.Handler) http.Handler {
 
 		defer span.Finish()
 
-		contextWithSpan := context.WithValue(r.Context(), MiddlewareContextSpanKey, span)
-		r.WithContext(contextWithSpan)
-
-		next.ServeHTTP(w, r)
+		ctxWithSpan := opentracing.ContextWithSpan(r.Context(), span)
+		next.ServeHTTP(w, r.WithContext(ctxWithSpan))
 
 		span.SetTag("http.method", r.Method)
 
