@@ -51,7 +51,7 @@ spec:
 
           env:
             - name: JAEGER_AGENT_HOST
-              value: "jaeger-00-agent.jaeger-operator.svc.cluster.local"
+              value: "jaeger-00-agent.jaeger-operator"
 
       topologySpreadConstraints:
         - maxSkew: 1
