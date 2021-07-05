@@ -87,6 +87,7 @@ jobs:
         run: |
           cd kubernetes
           kustomize edit set image api=${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:$GITHUB_SHA
+          kustomize edit set image garugaru/garu-io-frontend-api=${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:$GITHUB_SHA
 
       - name: Commit files
         run: |
