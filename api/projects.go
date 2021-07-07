@@ -22,7 +22,7 @@ func (a ProjectsApi) ProjectsList(w http.ResponseWriter, r *http.Request) {
 	span := spanFromRequest(a.tracer, r, "ProjectList")
 	defer span.Finish()
 
-	response, err := a.repository.Projects(r.Context(), repository.ProjectsRequest{
+	response, err := a.repository.Projects(opentracing.ContextWithSpan(r.Context(), span), repository.ProjectsRequest{
 		Count: 5,
 	})
 
