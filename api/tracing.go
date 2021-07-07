@@ -14,6 +14,12 @@ func spanFromRequest(tracer opentracing.Tracer, r *http.Request, opName string) 
 func (a Api) tracingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
+		// skip health check tracing
+		if r.URL.Path == "/" {
+			next.ServeHTTP(w, r)
+			return
+		}
+
 		carrier := opentracing.HTTPHeadersCarrier(r.Header)
 		clientContext, err := a.tracer.Extract(opentracing.HTTPHeaders, carrier)
 
