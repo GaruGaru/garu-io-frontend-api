@@ -7,6 +7,7 @@ import (
 	"garu-io-frontend-api/models"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"time"
 )
@@ -37,7 +38,16 @@ func (p ProjectsApi) Projects(ctx context.Context, request ProjectsRequest) (Pro
 	span := p.tracer.StartSpan("repository.Projects", ext.RPCServerOption(parentSpan.Context()))
 	defer span.Finish()
 
-	response, err := p.client.Get(fmt.Sprintf("%s/projects", p.endpoint))
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("%s/projects", p.endpoint), nil)
+	if err != nil {
+		return ProjectsResponse{}, err
+	}
+
+		if err := p.tracer.Inject(span.Context(), opentracing.HTTPHeaders, opentracing.HTTPHeadersCarrier(req.Header)); err != nil {
+		logrus.Warn("unable to inject span into http request: %s", err.Error())
+	}
+
+	response, err := p.client.Do(req)
 	if err != nil {
 		return ProjectsResponse{}, err
 	}

@@ -6,6 +6,7 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"io"
 	"log"
+	"os"
 	"time"
 
 	"github.com/uber/jaeger-client-go"
@@ -26,7 +27,7 @@ func main() {
 
 	workApi := api.NewWorkApi(repository.LocalWorkExperiencesRepository{})
 	languageApi := api.NewLanguagesApi(repository.LocalLanguagesRepository{}, tracer)
-	projectsApi := api.NewProjectsApi(repository.NewProjectsApi("http://garu-io-projects-api.garu-io-projects-api:80", tracer), tracer)
+	projectsApi := api.NewProjectsApi(repository.NewProjectsApi(projectsApiEndpoint(), tracer), tracer)
 	apiServer := api.NewApi(workApi, languageApi, projectsApi, tracer)
 
 	err = apiServer.Serve(api.ServeOpts{
@@ -37,6 +38,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func projectsApiEndpoint() string {
+	value, present := os.LookupEnv("PROJECT_API_ENDPOINT")
+	if !present {
+		return "http://garu-io-projects-api.garu-io-projects-api:80"
+	}
+	return value
 }
 
 func initTracing() (opentracing.Tracer, io.Closer, error) {
