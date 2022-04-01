@@ -44,7 +44,7 @@ var workExperiences = []models.WorkExperience{
 			Logo:    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUiJjL///8fIzBAQ00bIC1hZGuEhYoVGikABhzFxsjx8fIyNUAAABMADB/u7u63uLsAABbj4+Spq69SVV2foKMMEyOQkpY5PEdcXmaXmZ2vsbSlpqgAAAD4+PgAABvW1tjc68prAAABv0lEQVR4nO3cwVLbMBSGUTelBGhpgMbQQinv/5bstUBzx47wn55vL+mereTx9Hh53h2np/1ZN/+evu6mc+7iG2F6hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPkR5keYH2F+hPmtIJx7Ffdvl++XjbdcOP95+Ljn2gHzsVl/uYy4XHh3/6XTr4vKfj9umuXXV4vm26DwJ2Etwn6EhG2E1Qj7ERK2EVYj7EdI2EZYjbAfIWEbYTXCfoSEbYTVCPsRErZtT7h/PH7cy1PpgO0Jp/26r9wbFK4cYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYTXC8RFWIxwfYbU1/k9zu2p/NyecXw6r9vy6NWH/C9qFERISEhISEhISEhISnoXw39vNSXs93H6ycPf91C2bb4VbjN2pWzbe9m6i1o4wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8CPMjzI8wP8L8/gfhOx1iXMi+eXo4AAAAAElFTkSuQmCC",
 		},
 		Description: `
-<p><p>During my experience as fullstack developer in TravelAppeal I've worked on the design and implementation of the <b>microservice architecture</b>
+<p><p>During my experience as developer in Datappeal I've worked on the design and implementation of the <b>microservice architecture</b>
 using technologies such as <b>spring boot</b> for the backend and <b>angular/typescript</b> for the frontend deployed on <b>AWS (ecs)</b> and
 <b>Azure (kubernetes)</b>.<p><p>Design and implementation of <b>high scalable data ingestion pipeline</b> and <b>ETL jobs</b> on AWS using <b>Amazon RDS, 
 Amazon Redshift and Amazon S3</b> as backend storages and <b>ECS</b> as container orchestration platform with Amazon 
