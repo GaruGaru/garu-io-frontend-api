@@ -53,9 +53,13 @@ Amazon Redshift and Amazon S3</b> as backend storages and <b>ECS</b> as containe
 Migration from ECS to EKS (Managed kubernetes service) using Terraform for infrastructure provisioning, providing reliable multi cluster, docker based CI/CD pipeline using CodeBuild design and deployment of monitoring and real time alerting infrastructure for aws/eks using Prometheus .
 <p></p>
 
-Implementation of the internal developer platform using Backstage to improve dev productivity, enable automatization and archive faster and safer development iterations. 
+<p>
+Implementation of the <b>internal developer platform</b> using <b>Backstage</b> to improve developers productivity, enable automatization and archive faster and safer development iterations. 
+</p>
 
-Public contributions to widely used open source projects such as TrinoDB and Jaeger. 
+<p>
+Public contributions to widely used open source projects such as <b>TrinoDB</b> and <b>Jaeger</b>. 
+</p>
 `,
 	},
 	{
