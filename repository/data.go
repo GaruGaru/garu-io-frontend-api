@@ -35,7 +35,7 @@ var knownLanguages = []models.Languages{
 
 var workExperiences = []models.WorkExperience{
 	{
-		Role:      "Full Stack Developer",
+		Role:      "Lead Platform developer",
 		StartYear: 2018,
 		EndYear:   -1,
 		Company: models.Company{
@@ -51,7 +51,12 @@ Amazon Redshift and Amazon S3</b> as backend storages and <b>ECS</b> as containe
 <b>CodeBuild/CodePipeline for CI/CD</b> 
 
 Migration from ECS to EKS (Managed kubernetes service) using Terraform for infrastructure provisioning, providing reliable multi cluster, docker based CI/CD pipeline using CodeBuild design and deployment of monitoring and real time alerting infrastructure for aws/eks using Prometheus .
-<p></p>`,
+<p></p>
+
+Implementation of the internal developer platform using Backstage to improve dev productivity, enable automatization and archive faster and safer development iterations. 
+
+Public contributions to widely used open source projects such as TrinoDB and Jaeger. 
+`,
 	},
 	{
 		Role:      "Full Stack Developer",
